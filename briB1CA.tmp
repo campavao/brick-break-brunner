@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://b7312is08n3mh"]
+
+[ext_resource type="PackedScene" uid="uid://ccvlg7b1igcl6" path="res://paddle.tscn" id="1_4nhpy"]
+[ext_resource type="Script" path="res://brick_breaker.gd" id="1_ic4pv"]
+[ext_resource type="PackedScene" uid="uid://csa2dep5cgrbi" path="res://ball.tscn" id="3_4swas"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_52gqo"]
+normal = Vector2(0, 1)
+distance = 1.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_dr0t2"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_euojk"]
+normal = Vector2(-1, 0)
+
+[node name="Brick Breaker" type="Node2D"]
+script = ExtResource("1_ic4pv")
+
+[node name="Paddle" parent="." instance=ExtResource("1_4nhpy")]
+position = Vector2(240, 440)
+
+[node name="Boundary" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="TopBoundary" type="CollisionShape2D" parent="Boundary" groups=["boundary"]]
+position = Vector2(240, 0)
+shape = SubResource("WorldBoundaryShape2D_52gqo")
+
+[node name="LeftBoundary" type="CollisionShape2D" parent="Boundary" groups=["boundary"]]
+shape = SubResource("WorldBoundaryShape2D_dr0t2")
+
+[node name="RightBoundary" type="CollisionShape2D" parent="Boundary" groups=["boundary"]]
+position = Vector2(480, 0)
+shape = SubResource("WorldBoundaryShape2D_euojk")
+
+[node name="Ball" parent="." instance=ExtResource("3_4swas")]
+position = Vector2(241, 397)
