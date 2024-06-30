@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cq6uy3eyrvwax"]
+
+[ext_resource type="Texture2D" uid="uid://jsw45sqhmi0r" path="res://flag.png" id="1_yd5yh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ycfhw"]
+size = Vector2(4, 48)
+
+[node name="Finish" type="Area2D"]
+collision_layer = 8388608
+collision_mask = 8388608
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5, 0)
+shape = SubResource("RectangleShape2D_ycfhw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_yd5yh")
+metadata/_edit_lock_ = true

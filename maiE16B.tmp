@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dx0b6wi251xey"]
+[gd_scene load_steps=11 format=3 uid="uid://dx0b6wi251xey"]
 
 [ext_resource type="PackedScene" uid="uid://xvt0jl4kfe36" path="res://player.tscn" id="1_lqhwq"]
 [ext_resource type="Script" path="res://main.gd" id="1_n5ohu"]
@@ -16,8 +16,6 @@ texture = ExtResource("2_lgfyx")
 [sub_resource type="TileSet" id="TileSet_ipamt"]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_j7kxg")
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2cetk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_26gq1"]
 size = Vector2(10, 635)
@@ -41,15 +39,6 @@ layer_0/tile_data = PackedInt32Array(1507328, 0, 0, 1507329, 0, 0, 1507330, 0, 0
 
 [node name="Finish" parent="Level" instance=ExtResource("3_i0j1t")]
 position = Vector2(2214, -360)
-
-[node name="Barrier" type="Area2D" parent="Level"]
-position = Vector2(244, -1)
-collision_layer = 8388608
-collision_mask = 8388608
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Barrier"]
-position = Vector2(5, 643)
-shape = SubResource("WorldBoundaryShape2D_2cetk")
 
 [node name="Player" parent="." instance=ExtResource("1_lqhwq")]
 position = Vector2(244, 353)
@@ -99,49 +88,23 @@ position = Vector2(-240, -240)
 
 [node name="Time" type="Label" parent="UI"]
 unique_name_in_owner = true
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -62.0
-offset_top = 16.0
-offset_right = -22.0
-offset_bottom = 39.0
-grow_horizontal = 0
-size_flags_horizontal = 4
-text = "0.0s"
+offset_right = 40.0
+offset_bottom = 23.0
+text = "0.0"
 
 [node name="StartButton" type="Button" parent="UI"]
-unique_name_in_owner = true
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -23.0
-offset_top = -92.0
-offset_right = 23.0
-offset_bottom = -61.0
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
-disabled = true
 text = "Start"
 
-[node name="PlayerNameInput" type="LineEdit" parent="UI"]
-unique_name_in_owner = true
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -72.5
-offset_top = -144.0
-offset_right = 72.5
-offset_bottom = -113.0
-grow_horizontal = 2
-grow_vertical = 2
-placeholder_text = "Name"
-
 [connection signal="body_entered" from="Level/Finish" to="." method="_on_finish_body_entered"]
-[connection signal="body_entered" from="Level/Barrier" to="." method="_on_barrier_body_entered"]
 [connection signal="pressed" from="UI/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="text_changed" from="UI/PlayerNameInput" to="." method="_on_player_name_input_text_changed"]
