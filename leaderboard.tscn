@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=3 uid="uid://dq7a2dim5ocla"]
+
+[ext_resource type="Script" path="res://leaderboard.gd" id="1_g1iy6"]
+
+[node name="Leaderboard" type="CanvasLayer"]
+script = ExtResource("1_g1iy6")
+
+[node name="Title" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -50.0
+offset_top = 21.0
+offset_right = 50.0
+offset_bottom = 44.0
+grow_horizontal = 2
+text = "Leaderboard"
+
+[node name="BG" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -212.0
+offset_top = -187.0
+offset_right = 215.0
+offset_bottom = 226.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.121569, 0.121569, 0.121569, 1)
+
+[node name="Entries" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -171.0
+offset_right = 199.0
+offset_bottom = 213.0
+grow_horizontal = 2
+grow_vertical = 2

@@ -24,6 +24,9 @@ func _ready():
 	SilentWolf.configure_scores({
 		"open_scene_on_close": "res://scenes/MainPage.tscn"
 	})
+	
+	if player_name != "Default":
+		%PlayerNameInput.text = player_name
 
 func _process(delta):
 	if game_state == GameState.RUNNING:
@@ -56,7 +59,6 @@ func toggle_children_process(node: Node2D, value: bool):
 func _on_barrier_body_entered(body):
 	get_tree().reload_current_scene()
 	time_elapsed = 0.0
-
 
 func _on_player_name_input_text_changed(new_text: String):
 	player_name = new_text	

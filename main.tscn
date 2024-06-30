@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://dx0b6wi251xey"]
+[gd_scene load_steps=13 format=3 uid="uid://dx0b6wi251xey"]
 
 [ext_resource type="PackedScene" uid="uid://xvt0jl4kfe36" path="res://player.tscn" id="1_lqhwq"]
 [ext_resource type="Script" path="res://main.gd" id="1_n5ohu"]
 [ext_resource type="Texture2D" uid="uid://2i0q5qxlfm6" path="res://brick.png" id="2_lgfyx"]
 [ext_resource type="PackedScene" uid="uid://b7312is08n3mh" path="res://brick_breaker.tscn" id="2_wb3g6"]
 [ext_resource type="PackedScene" uid="uid://cq6uy3eyrvwax" path="res://finish.tscn" id="3_i0j1t"]
+[ext_resource type="PackedScene" uid="uid://dq7a2dim5ocla" path="res://leaderboard.tscn" id="6_t0hbc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j7kxg"]
 texture = ExtResource("2_lgfyx")
@@ -140,6 +141,9 @@ offset_bottom = -113.0
 grow_horizontal = 2
 grow_vertical = 2
 placeholder_text = "Name"
+
+[node name="Leaderboard" parent="." instance=ExtResource("6_t0hbc")]
+visible = false
 
 [connection signal="body_entered" from="Level/Finish" to="." method="_on_finish_body_entered"]
 [connection signal="body_entered" from="Level/Barrier" to="." method="_on_barrier_body_entered"]
