@@ -19,3 +19,7 @@ func fetch_scores():
 		label.text = str(index + 1) + ". " + score.player_name + " - " + str(score.score).pad_decimals(2)
 		label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		%Entries.add_child(label)
+
+func display():
+	fetch_scores()
+	show()

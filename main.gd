@@ -38,7 +38,9 @@ func _on_finish_body_entered(body):
 	game_state = GameState.OVER
 	var sw_result: Dictionary = await SilentWolf.Scores.save_score(player_name, time_elapsed).sw_save_score_complete
 	print("Score persisted successfully: " + str(sw_result.score_id))
-
+	%Leaderboard.display()
+	toggle_children_process(self, false)
+	
 func _on_start_button_pressed():
 	game_state = GameState.RUNNING
 	%StartButton.hide()
