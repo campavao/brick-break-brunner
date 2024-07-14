@@ -4,11 +4,12 @@
 [ext_resource type="Script" path="res://player.gd" id="1_rf178"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8ynvq"]
-radius = 7.0
+radius = 6.0
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 8388609
 collision_mask = 8388609
+floor_stop_on_slope = false
 script = ExtResource("1_rf178")
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]
