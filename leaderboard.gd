@@ -13,6 +13,9 @@ func fetch_scores():
 		%Entries.remove_child(child)
 		child.queue_free() 
 	
+	if scores.size() > 0:
+		scores.reverse()
+	
 	for index in scores.size():
 		var score = scores[index]
 		var label = Label.new()

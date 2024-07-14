@@ -13,7 +13,7 @@ func _ready():
 		"open_scene_on_close": "res://scenes/MainPage.tscn"
 	})
 
-func _input(event):
+func _input(_event):
 	toggle_children_process(self, true)
 
 
