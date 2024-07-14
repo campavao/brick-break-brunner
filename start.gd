@@ -13,15 +13,14 @@ func _ready():
 		"open_scene_on_close": "res://scenes/MainPage.tscn"
 	})
 
-func _input(_event):
-	toggle_children_process(self, true)
+func _input(event):
+	if event is InputEventKey:
+		toggle_children_process(self, true)
 
 
 func _on_barrier_body_entered(body):
 	if body is Player:
-		%EnterName.show()
-		toggle_children_process(self, false)
-
+		get_tree().change_scene_to_file("res://change_name.tscn")
 
 func toggle_children_process(node: Node2D, value: bool):
 	for child in node.get_children():
@@ -31,11 +30,3 @@ func toggle_children_process(node: Node2D, value: bool):
 		if child is Node2D:
 			toggle_children_process(child, value)
 
-
-func _on_start_button_pressed():
-	Globals.start()
-	get_tree().change_scene_to_file("res://main.tscn")
-
-func _on_player_name_input_text_changed(new_text: String):
-	Globals.player_name = new_text	
-	%StartButton.disabled = new_text.length() < 3

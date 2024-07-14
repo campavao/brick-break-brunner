@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://cu0nhjcg88ncj"]
+
+[ext_resource type="Script" path="res://change_name.gd" id="1_2x1sy"]
+
+[node name="ChangeName" type="Node2D"]
+script = ExtResource("1_2x1sy")
+
+[node name="EnterName" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+
+[node name="StartButton" type="Button" parent="EnterName"]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -92.0
+offset_right = 23.0
+offset_bottom = -61.0
+grow_horizontal = 2
+grow_vertical = 2
+disabled = true
+text = "Start"
+
+[node name="PlayerNameInput" type="LineEdit" parent="EnterName"]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.5
+offset_top = -144.0
+offset_right = 72.5
+offset_bottom = -113.0
+grow_horizontal = 2
+grow_vertical = 2
+placeholder_text = "Name"
+
+[connection signal="pressed" from="EnterName/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="text_changed" from="EnterName/PlayerNameInput" to="." method="_on_player_name_input_text_changed"]

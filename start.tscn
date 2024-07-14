@@ -81,41 +81,4 @@ collision_mask = 0
 position = Vector2(239, -5)
 shape = SubResource("RectangleShape2D_equri")
 
-[node name="EnterName" type="CanvasLayer" parent="."]
-unique_name_in_owner = true
-visible = false
-
-[node name="StartButton" type="Button" parent="EnterName"]
-unique_name_in_owner = true
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -23.0
-offset_top = -92.0
-offset_right = 23.0
-offset_bottom = -61.0
-grow_horizontal = 2
-grow_vertical = 2
-disabled = true
-text = "Start"
-
-[node name="PlayerNameInput" type="LineEdit" parent="EnterName"]
-unique_name_in_owner = true
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -72.5
-offset_top = -144.0
-offset_right = 72.5
-offset_bottom = -113.0
-grow_horizontal = 2
-grow_vertical = 2
-placeholder_text = "Name"
-
 [connection signal="body_entered" from="Barrier" to="." method="_on_barrier_body_entered"]
-[connection signal="pressed" from="EnterName/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="text_changed" from="EnterName/PlayerNameInput" to="." method="_on_player_name_input_text_changed"]

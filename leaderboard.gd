@@ -26,3 +26,7 @@ func fetch_scores():
 func display():
 	fetch_scores()
 	show()
+
+
+func _on_retry_button_pressed():
+	Globals.reset()
